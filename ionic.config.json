@@ -1,0 +1,7 @@
+{
+  "name": "PasteleriaDulcePecado",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
