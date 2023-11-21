@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home2"></ion-back-button>
+    </ion-buttons>
+    <ion-title>camara</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-menu contentId="main-content">
+  <!-- Menú lateral con opciones -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Opciones del Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <!-- Opciones del menú con funciones asociadas -->
+      <ion-item (click)="home()">Home</ion-item>
+      <ion-item (click)="camara()">Camara</ion-item>
+      <ion-item (click)="geolocalizacion()">Geolocalizacion</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-content [fullscreen]="true">
+  <!-- Contenido principal -->
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/home2"></ion-back-button>
+      </ion-buttons>
+      <ion-title size="large">camara</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <!-- Botón flotante para agregar fotos a la galería -->
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button (click)="addPhotoToGallery()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <!-- Cuadrícula de fotos -->
+    <ion-grid>
+      <ion-row>
+        <!-- Itera sobre las fotos y las muestra en la cuadrícula -->
+        <ion-col size="6" *ngFor="let photo of photoService.photos; index as position">
+          <ion-img [src]="photo.webviewPath"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-content>

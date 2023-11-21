@@ -1,20 +1,53 @@
-<ion-header [translucent]="true">
+<ion-header translucent="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title> Bienvenido! {{ username }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Pastelería Dulce Pecado</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-card>
+      <img alt="" src="https://i.pinimg.com/originals/29/76/fd/2976fd174d0ed72eb0c70a3886005b7f.gif" />
+      <ion-card-header>
+        <ion-card-title>Gestiona y solicita tus dulces pedidos</ion-card-title>
+        <ion-card-subtitle>Regístrate ahora y sumérgete en un mundo de delicias dulces.</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        Regístrate e inicia sesión para una de las mejores experiencias.
+      </ion-card-content>
+
+      <!-- Botones agregados con íconos -->
+      <ion-button expand="full" (click)="ingresar()">
+        <ion-icon name="log-in-outline" slot="start"></ion-icon>
+        Ingresar
+      </ion-button>
+      <ion-button expand="full" (click)="crearCuenta()">
+        <ion-icon name="person-add-outline" slot="start"></ion-icon>
+        Crear Cuenta
+      </ion-button>
+    </ion-card>
+
+    <div class="centrado">
+      <ion-card>
+        <!-- Contenido del segundo ion-card -->
+      </ion-card>
+    </div>
   </div>
+
+  <ion-footer>
+    <!-- Iconos fijos en la parte inferior -->
+    <ion-buttons slot="bottom">
+      <ion-icon name="logo-facebook"></ion-icon>
+      <ion-icon name="logo-twitter"></ion-icon>
+      <ion-icon name="logo-instagram"></ion-icon>
+      <ion-icon name="logo-linkedin"></ion-icon>
+    </ion-buttons>
+  </ion-footer>
 </ion-content>
