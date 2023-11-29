@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Geolocation } from '@capacitor/geolocation';
 import { Plugins } from '@capacitor/core';
 import { GoogleMap } from '@capacitor/google-maps';
+import { Router } from '@angular/router'; // Importa el servicio Router
 
 const { GoogleMaps } = Plugins;
 
@@ -16,11 +17,19 @@ export class GeolocalizacionPage implements OnInit {
   latitude: number = 0;
   longitude: number = 0;
 
-  constructor() {}
+  constructor(private router: Router) {} // Agrega el servicio Router como una propiedad
 
-  async ngOnInit() {
-    await this.getCurrentLocation();
-    await this.createGoogleMap();
+  ngOnInit() {
+    this.loadLocationAndMap();
+  }
+
+  async loadLocationAndMap() {
+    try {
+      await this.getCurrentLocation();
+      await this.createGoogleMap();
+    } catch (error) {
+      console.error('Error loading location and map:', error);
+    }
   }
 
   async getCurrentLocation() {
@@ -30,6 +39,7 @@ export class GeolocalizacionPage implements OnInit {
       this.longitude = coordinates.coords.longitude;
     } catch (error) {
       console.error('Error getting current location:', error);
+      throw error;
     }
   }
 
@@ -38,24 +48,36 @@ export class GeolocalizacionPage implements OnInit {
       const apiKey = 'AIzaSyBJV2FJvgQkxovVpuGZwlPh6A3Pck9m6t0';
       const mapRef = document.getElementById('map');
 
-      if (mapRef) {
-        const newMap = await GoogleMap.create({
-          id: 'my-map',
-          element: mapRef,
-          apiKey: apiKey,
-          config: {
-            center: {
-              lat: this.latitude,
-              lng: this.longitude,
-            },
-            zoom: 15,
-          },
-        });
-      } else {
+      if (!mapRef) {
         console.error('Error: mapRef is null');
+        return;
       }
+
+      const newMap = await GoogleMap.create({
+        id: 'my-map',
+        element: mapRef,
+        apiKey: apiKey,
+        config: {
+          center: {
+            lat: this.latitude,
+            lng: this.longitude,
+          },
+          zoom: 15,
+        },
+      });
     } catch (error) {
       console.error('Error creating Google Map:', error);
+      throw error;
     }
+  }
+
+  // Resto del código...
+
+  camara() {
+    this.router.navigate(['/camara']);
+  }
+
+  geolocalizacion() {
+    this.router.navigate(['/geolocalizacion']);
   }
 }
