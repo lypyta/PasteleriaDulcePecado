@@ -45,7 +45,7 @@ export class GeolocalizacionPage implements OnInit {
 
   async createGoogleMap() {
     try {
-      const apiKey = 'AIzaSyBJV2FJvgQkxovVpuGZwlPh6A3Pck9m6t0';
+      const apiKey = 'Api key';
       const mapRef = document.getElementById('map');
 
       if (!mapRef) {
