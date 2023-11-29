@@ -1,9 +1,10 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="dark">
+    <ion-progress-bar type="indeterminate" color="medium"></ion-progress-bar>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/" text="" icon="chevron-back-outline"></ion-back-button>
     </ion-buttons>
-    <ion-title>Login</ion-title>
+    <ion-title>Inicio de sesion</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,7 +16,7 @@
   </ion-header>
 
   <!-- Imagen decorativa -->
-  <ion-img src="https://estag.fimagenes.com/img/2/3/1/r/s/31rs_900.jpg"></ion-img>
+  <img src="../../assets/img/inicioN.png" alt="login"  class="imagen_responsiva">
 
   <ion-card>
     <ion-card-content>
@@ -34,7 +35,7 @@
       </ion-item>
 
       <!-- Botón para iniciar sesión con ícono -->
-      <ion-button expand="full" (click)="login()">
+      <ion-button expand="full" color="light" shape="round" (click)="login()">
         <ion-icon name="log-in-outline" slot="start"></ion-icon>
         Iniciar Sesión
       </ion-button>
@@ -50,7 +51,7 @@
   <!-- Mensaje adicional o información -->
   <ion-card>
     <ion-card-content>
-      <ion-button fill="clear" color="medium" (click)="forgotPassword()">
+      <ion-button fill="clear"  (click)="forgotPassword()">
         <ion-icon name="key-outline" slot="start"></ion-icon>
         si no tienes cuenta puedes registrarte
       </ion-button>

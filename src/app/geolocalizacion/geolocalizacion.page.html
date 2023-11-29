@@ -1,8 +1,20 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-progress-bar type="indeterminate" color="medium"></ion-progress-bar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>Geolocalización</ion-title>
   </ion-toolbar>
 </ion-header>
+
+<ion-content [fullscreen]="true" color="dark">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Pastelería Dulce Pecado</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
 
 <ion-content>
   <ion-card>

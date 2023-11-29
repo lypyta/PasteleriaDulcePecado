@@ -1,0 +1,52 @@
+#container {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  #container strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  #container p {
+    font-size: 16px;
+    line-height: 22px;
+    color: #660404;
+    margin: 0;
+  }
+  
+  #container a {
+    text-decoration: none;
+  }
+  
+  body {
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Agrega estilos para los iconos en la parte inferior */
+  ion-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff; /* Puedes ajustar el color de fondo según tus necesidades */
+  }
+  
+  ion-buttons[slot='bottom'] {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px; /* Ajusta según sea necesario */
+  }
+  
+  ion-buttons[slot='bottom'] ion-icon {
+    font-size: 24px; /* Ajusta el tamaño del icono según sea necesario */
+    color: #000000; /* Ajusta el color del icono según sea necesario */
+  }
+  

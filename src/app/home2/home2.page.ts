@@ -3,6 +3,7 @@ import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; 
 
+
 @Component({
   selector: 'app-home2',
   templateUrl: './home2.page.html',
@@ -34,5 +35,18 @@ export class Home2Page implements OnInit {
     await this.authservice.logout();
     this.navCtrl.navigateRoot('/login');
   }
+
+  
+
+// ...
+
+camara() {
+  // Cambia 'otra-pagina' por el nombre de la ruta de tu otra página
+  this.router.navigate(['/camara']);
+}
+geolocalizacion() {
+  // Cambia 'otra-pagina' por el nombre de la ruta de tu otra página
+  this.router.navigate(['/geolocalizacion']);
+}
 
 }
