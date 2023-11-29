@@ -1,7 +1,10 @@
+import { AuthService } from './../auth.service';
 import { Component } from '@angular/core';
 import { Platform, ToastController } from '@ionic/angular';
 import { NavController, Animation, AnimationController } from '@ionic/angular';
 import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-home',
@@ -15,7 +18,8 @@ export class HomePage {
     private platform: Platform,
     private navCtrl: NavController,
     private router: Router,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+        
   ) {
     const storedUsername = localStorage.getItem('username');
     if (storedUsername) {
@@ -31,6 +35,7 @@ export class HomePage {
     });
     await toast.present();
   }
+
 
   ingresar() {
     this.router.navigate(['/login']); // Navega a la página de login

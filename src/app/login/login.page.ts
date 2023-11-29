@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { NavController } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 
@@ -12,7 +15,13 @@ export class LoginPage {
   password: string = '';
   isButtonDisabled: boolean = true;
 
-  constructor(private router: Router, private toastCtrl: ToastController) {}
+  constructor(
+    private router: Router,
+    private toastCtrl: ToastController,
+    private authservice: AuthService,
+    private navCtrl: NavController,
+    private storage: Storage
+  ) {}
 
   async presentToast(message: string) {
     const toast = await this.toastCtrl.create({
@@ -23,54 +32,67 @@ export class LoginPage {
     await toast.present();
   }
 
+  async login() {
+    const loggedIn = await this.authservice.login(this.username, this.password);
+
+    if (loggedIn) {
+      this.navCtrl.navigateRoot('/home2');
+    } else {
+      console.log('Credenciales incorrectas');
+    }
+  }
+
+  async register() {
+    const registered = await this.authservice.register(this.username, this.password);
+
+    if (registered) {
+      console.log('Usuario registrado exitosamente:', this.username);
+    } else {
+      console.log('Error al registrar el usuario');
+    }
+  }
+
   updateButtonState() {
-    // Habilita el botón solo si ambos campos están completos
     this.isButtonDisabled = !(this.username.trim() && this.password.trim());
   }
 
-  login() {
-    // Validaciones de caracteres para el usuario y la contraseña
-    const usernameRegex = /^[a-zA-Z0-8]+$/;
+  validateInputs() {
+    const usernameRegex = /^[a-zA-Z0-9]+$/;
     const passwordRegex = /^[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/^-]+$/;
 
     if (!this.username.trim()) {
       this.presentToast('Por favor, ingresa un nombre de usuario.');
-      return;
+      return false;
     }
 
     if (!usernameRegex.test(this.username)) {
       this.presentToast('El usuario debe tener entre 3 y 8 caracteres y solo puede contener letras y números.');
-      return;
+      return false;
     }
 
     if (!this.password.trim()) {
       this.presentToast('Por favor, ingresa una contraseña.');
-      return;
+      return false;
     }
 
     if (this.password.length < 8) {
       this.presentToast('La contraseña debe tener al menos 8 caracteres.');
-      return;
+      return false;
     }
 
     if (!passwordRegex.test(this.password)) {
       this.presentToast('La contraseña debe contener letras, números y caracteres especiales.');
-      return;
+      return false;
     }
 
-    // Puedes realizar la autenticación con tu backend aquí si es necesario
-    // Por ejemplo, podrías llamar a un servicio de autenticación
+    return true;
+  }
 
-    // Permitir el acceso directo a 'home2' una vez que los campos están completos
+  navigateToHome2() {
     this.router.navigate(['/home2']);
   }
 
-  // Agrega la función para navegar a la página 'forgot-password'
   forgotPassword() {
-    // Puedes agregar lógica adicional aquí si es necesario
-    // Por ejemplo, podrías enviar un correo de recuperación de contraseña
-
-    // Navegar a la página 'forgot-password'
     this.router.navigate(['/forgot-password']);
   }
 }

@@ -26,7 +26,7 @@ export class ProductServiceService {
     };
   }
 
-  // Método para agregar un nuevo producto.
+  // funcion para agregar un nuevo producto.
   addProduct(producto: ClProducto): Observable<ClProducto> {
     return this.http.post<ClProducto>(apiUrl + "/", producto, httpOptions)
       .pipe(

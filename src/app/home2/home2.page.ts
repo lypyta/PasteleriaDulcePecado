@@ -1,5 +1,7 @@
+import { NavController } from '@ionic/angular';
+import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';  // Importa el servicio Router
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-home2',
@@ -8,7 +10,11 @@ import { Router } from '@angular/router';  // Importa el servicio Router
 })
 export class Home2Page implements OnInit {
 
-  constructor(private router: Router) { }  // Inyecta el servicio Router
+  constructor(private router: Router ,
+      private authservice: AuthService,
+      private navCtrl: NavController
+
+    ) { }  // Inyecta el servicio Router
 
   ngOnInit() {
     // Lógica que se ejecuta al inicializar el componente
@@ -23,5 +29,10 @@ export class Home2Page implements OnInit {
   }
 
   // Puedes agregar más funciones según tus necesidades
+  
+  async logout(){
+    await this.authservice.logout();
+    this.navCtrl.navigateRoot('/login');
+  }
 
 }
