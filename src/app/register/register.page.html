@@ -1,11 +1,13 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-progress-bar type="indeterminate" color="medium"></ion-progress-bar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/" text="" icon="chevron-back-outline"></ion-back-button>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Registro</ion-title>
+    <ion-title>Registrarse</ion-title>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
@@ -15,7 +17,7 @@
   </ion-header>
 
   <!-- Imagen decorativa 1 -->
-  <ion-img src="https://i.gifer.com/HS0T.gif"></ion-img>
+  <img src="../../assets/img/creacn.png" alt="logo" class="imagen_responsiva">
 
   <ion-list>
 
@@ -23,7 +25,7 @@
     <ion-item>
       <ion-label position="floating">Nombre de usuario</ion-label>
       <ion-icon name="person" slot="start"></ion-icon>
-      <ion-input [(ngModel)]="username" type="text" required></ion-input>
+      <ion-input aria-label="username" [(ngModel)]="username" name="username" required></ion-input>
     </ion-item>
     <ion-note>Ingresa un nombre de usuario único.</ion-note>
 
@@ -31,7 +33,7 @@
     <ion-item>
       <ion-label position="floating">Contraseña</ion-label>
       <ion-icon name="lock-closed" slot="start"></ion-icon>
-      <ion-input [(ngModel)]="password" type="password" required></ion-input>
+      <ion-input aria-label="password" [(ngModel)]="password" type="password" name="password" required></ion-input>
     </ion-item>
     <ion-note>La contraseña debe contener al menos 8 caracteres.</ion-note>
 
@@ -51,8 +53,9 @@
 
   </ion-list>
 
-  <!-- Imagen decorativa 2 -->
+ 
+
+  <ion-button expand="full" color="light" shape="round" (click)="register()">CREAR MI CUENTA</ion-button>
   
-  <ion-button expand="full" (click)="register()">Registrarse</ion-button>
 
 </ion-content>

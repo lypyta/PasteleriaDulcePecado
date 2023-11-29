@@ -1,13 +1,29 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>not-found</ion-title>
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-progress-bar type="indeterminate" color="medium"></ion-progress-bar>
+    <ion-title>Error 404</ion-title>
+    
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">not-found</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+<ion-content [fullscreen]="true" class="auth-form">
+  <ion-card id="home"> 
+    <ion-card-title color="danger">
+      <h1>►► Página no encontrada (╥﹏╥) ◄◄</h1>        
+    </ion-card-title>
+    <ion-card-subtitle color="light">
+      <h2>►► La página ingresada no existe ◄◄</h2></ion-card-subtitle>
+    <div class="imagen_logo"> 
+      <img src="../../assets/img/notn.png" alt="logo" class="imagen_responsiva">
+    </div>
+    <ion-card-content>      
+      <ion-grid>
+        <ion-row>
+          <ion-col align-self-center>
+            <ion-button [routerLink]="['/home']" id type="submit" color="light" expand="block" shape="round">Regresar al Home</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  

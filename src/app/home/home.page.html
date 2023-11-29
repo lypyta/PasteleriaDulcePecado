@@ -1,8 +1,13 @@
-<ion-header translucent="true">
-  <ion-toolbar>
-    <ion-title> Bienvenido! {{ username }}</ion-title>
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-progress-bar type="indeterminate" color="medium"></ion-progress-bar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Bienvenid@ </ion-title>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
@@ -13,7 +18,7 @@
 
   <div id="container">
     <ion-card>
-      <img alt="" src="https://i.pinimg.com/originals/29/76/fd/2976fd174d0ed72eb0c70a3886005b7f.gif" />
+      <img src="../../assets/img/inicioN.png" alt="logo" class="imagen_responsiva">
       <ion-card-header>
         <ion-card-title>Gestiona y solicita tus dulces pedidos</ion-card-title>
         <ion-card-subtitle>Regístrate ahora y sumérgete en un mundo de delicias dulces.</ion-card-subtitle>

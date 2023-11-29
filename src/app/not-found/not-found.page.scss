@@ -1,0 +1,27 @@
+.imagen_logo {
+    display: flex; /* Utilizamos flexbox para centrar vertical y horizontalmente */
+    justify-content: center; /* Centramos horizontalmente */
+    align-items: center; /* Centramos verticalmente */
+  }
+  
+  .imagen_responsiva {
+    max-width: 100%; /* La imagen no debe superar el ancho del contenedor */
+    height: auto; /* La altura se ajustará automáticamente para mantener la relación de aspecto */
+  }
+  ion-content {
+    --background: black; 
+    color: white; 
+  }
+  ion-card {
+    background-color: black; 
+    color: white; 
+  }
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #333; /* Puedes cambiar el color de fondo según tus preferencias */
+    color: white; /* Puedes cambiar el color del texto según tus preferencias */
+    padding: 10px; /* Añade espacio alrededor del contenido del footer */
+  }
