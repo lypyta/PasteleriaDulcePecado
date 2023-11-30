@@ -29,4 +29,11 @@ export class ForgotPasswordPage {
     this.presentToast('Se ha enviado un correo de recuperación de contraseña a ' + this.email);
     this.router.navigate(['/login']);
   }
+  camara() {
+    this.router.navigate(['/camara']);
+  }
+
+  geolocalizacion() {
+    this.router.navigate(['/geolocalizacion']);
+  }
 }

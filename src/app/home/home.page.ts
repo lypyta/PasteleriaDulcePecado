@@ -47,4 +47,11 @@ export class HomePage {
   irAModuloAdministrativo() {
     this.router.navigate(['/moduloadministrativo']); // Navega a la página de login
   }
+  camara() {
+    this.router.navigate(['/camara']);
+  }
+
+  geolocalizacion() {
+    this.router.navigate(['/geolocalizacion']);
+  }
 }

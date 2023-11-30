@@ -32,6 +32,7 @@
         <ion-icon name="log-in-outline" slot="start"></ion-icon>
         Ingresar
       </ion-button>
+      <h3> <a class="small-text">Aun no tienes Cuenta? </a> </h3>
       <ion-button expand="full" color="light" shape="round" (click)="crearCuenta()">
         <ion-icon name="person-add-outline" slot="start"></ion-icon>
         Crear Cuenta
@@ -39,14 +40,17 @@
     </ion-card>
   </div>
 
-  <ion-footer>
+  <ion-footer color="dark">
     <!-- Iconos fijos en la parte inferior -->
     <ion-buttons slot="bottom">
       <ion-icon name="logo-facebook"></ion-icon>
-      <ion-icon name="logo-twitter"></ion-icon>
       <ion-icon name="logo-instagram"></ion-icon>
-      <ion-icon name="logo-linkedin"></ion-icon>
+      <ion-button fill="clear" color="dark" (click)="camara()">
+        <ion-icon name="camera" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" color="dark" (click)="geolocalizacion()">
+        <ion-icon name="locate" slot="icon-only"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-footer>
 </ion-content>
-

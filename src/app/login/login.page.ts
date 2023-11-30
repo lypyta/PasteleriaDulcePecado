@@ -95,4 +95,11 @@ export class LoginPage {
   forgotPassword() {
     this.router.navigate(['/forgot-password']);
   }
+  camara() {
+    this.router.navigate(['/camara']);
+  }
+
+  geolocalizacion() {
+    this.router.navigate(['/geolocalizacion']);
+  }
 }
