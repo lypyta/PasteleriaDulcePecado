@@ -11,14 +11,14 @@ describe('CamaraPage', () => {
   let fixture: ComponentFixture<CamaraPage>;
 
   // Configura el entorno de pruebas antes de cada prueba.
-  beforeEach(async(() => {
+  beforeEach(async() => {
     // Configura un módulo de pruebas con TestBed.
     fixture = TestBed.createComponent(CamaraPage);
     // Obtiene una instancia del componente que se va a probar.
     component = fixture.componentInstance;
     // Realiza una detección de cambios para asegurarse de que el componente y la vista estén sincronizados.
     fixture.detectChanges();
-  }));
+  });
 
   // Prueba para verificar si el componente se crea correctamente.
   it('should create', () => {
