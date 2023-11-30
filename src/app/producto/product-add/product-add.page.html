@@ -1,22 +1,15 @@
-
-
-<ion-header>
-  <ion-toolbar>
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-progress-bar type="indeterminate" color="medium"></ion-progress-bar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-back-button defaultHref="/" text="" icon="chevron-back-outline"></ion-back-button>
     </ion-buttons>
-    <ion-title> Nuevo Producto </ion-title>
-    <ion-buttons slot="end">
-      <ion-back-button defaultHref="/product-list"></ion-back-button>
-    </ion-buttons>
-
-
+    <ion-title>Agregar nuevo producto</ion-title>
   </ion-toolbar>
 </ion-header>
 
-
-<ion-content padding>
-  <form [formGroup]="productForm" (ngSubmit)="onFormSubmit(productForm.value)">
+<ion-content padding >
+  <form [formGroup]="productForm" class="background" (ngSubmit)="onFormSubmit(productForm.value)">
     <ion-item>
       <ion-label position="floating">Nombre</ion-label>
       <ion-input type="text" [(ngModel)]="producto.nombreprod" formControlName="prod_name"></ion-input>
@@ -38,8 +31,8 @@
     <div *ngIf="direccionErrorL" class="error-message">
       {{ direccionErrorL }}
     </div>
-    <ion-button type="submit" shape="round" color="primary" expand="block"
-      [disabled]="!productForm.valid">Submit</ion-button>
+    <ion-button type="submit" shape="round" color="medium" expand="block"
+      [disabled]="!productForm.valid">Agregar Producto</ion-button>
   </form>
 </ion-content>
 

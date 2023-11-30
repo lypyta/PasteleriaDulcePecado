@@ -49,3 +49,6 @@ ion-buttons[slot='bottom'] ion-icon {
   font-size: 24px; /* Ajusta el tamaño del icono según sea necesario */
   color: #000000; /* Ajusta el color del icono según sea necesario */
 }
+ion-content {
+  --background: black;
+}
