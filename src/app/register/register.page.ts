@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { Component,OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { AuthService } from '../auth.service';
+import { NavController } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-register',
@@ -10,10 +13,16 @@ import { ToastController } from '@ionic/angular';
 export class RegisterPage {
   username: string = '';
   password: string = '';
-  email: string = '';
-  phoneNumber: string = '';
+  
 
-  constructor(private router: Router, private toastCtrl: ToastController) {}
+  constructor(private router: Router, 
+    private toastCtrl: ToastController,
+    private authservice: AuthService,
+    private navCtrl: NavController,
+    private storage: Storage,
+    
+    
+    ) {}
 
   async presentToast(message: string) {
     const toast = await this.toastCtrl.create({
@@ -23,41 +32,60 @@ export class RegisterPage {
     });
     await toast.present();
   }
+  async login() {
+    const loggedIn = await this.authservice.login(this.username, this.password);
 
-  register() {
-    // Validaciones de caracteres para el usuario, la contraseña, el correo electrónico y el número de teléfono
+    if (loggedIn) {
+      this.navCtrl.navigateRoot('/home2');
+    } else {
+      console.log('Credenciales incorrectas');
+    }
+  }
 
-    // Validación de longitud mínima para el nombre de usuario
-    if (this.username.length < 7) {
-      this.presentToast('El nombre de usuario debe tener al menos 7 caracteres.');
-      return;
+  async register() {
+    const registered = await this.authservice.register(this.username, this.password);
+
+    if (registered) {
+      console.log('Usuario registrado exitosamente:', this.username);
+    } else {
+      console.log('Error al registrar el usuario');
+    }
+  }
+  
+  validateInputs() {
+    const usernameRegex = /^[a-zA-Z0-9]+$/;
+    const passwordRegex = /^[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/^-]+$/;
+
+    if (!this.username.trim()) {
+      this.presentToast('Por favor, ingresa un nombre de usuario.');
+      return false;
     }
 
-    // Validación de longitud mínima para la contraseña
+    if (!usernameRegex.test(this.username)) {
+      this.presentToast('El usuario debe tener entre 3 y 8 caracteres y solo puede contener letras y números.');
+      return false;
+    }
+
+    if (!this.password.trim()) {
+      this.presentToast('Por favor, ingresa una contraseña.');
+      return false;
+    }
+
     if (this.password.length < 8) {
       this.presentToast('La contraseña debe tener al menos 8 caracteres.');
-      return;
+      return false;
     }
 
-    // Validación básica de formato de correo electrónico
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(this.email)) {
-      this.presentToast('Ingresa un correo electrónico válido.');
-      return;
+    if (!passwordRegex.test(this.password)) {
+      this.presentToast('La contraseña debe contener letras, números y caracteres especiales.');
+      return false;
     }
 
-    // Validación básica de formato de número de teléfono
-    const phoneRegex = /^\d{9}$/;
-    if (!phoneRegex.test(this.phoneNumber)) {
-      this.presentToast('Ingresa un número de teléfono válido (10 dígitos sin espacios ni guiones).');
-    }
-
-    // Lógica de registro
-    // Aquí deberías realizar la lógica de registro con tu backend
-    // Puedes utilizar servicios, HttpClient, etc.
-
-    // Ejemplo básico: si el registro es exitoso, redirige a la página de inicio de sesión
-    this.router.navigate(['/login']);
-    this.presentToast('Registro exitoso. Inicia sesión con tus nuevas credenciales.');
+    return true;
   }
+
+  navigateToHome2() {
+    this.router.navigate(['/home2']);
+  }
+
 }

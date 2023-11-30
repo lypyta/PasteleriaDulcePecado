@@ -33,19 +33,16 @@ export class Home2Page implements OnInit {
   
   async logout(){
     await this.authservice.logout();
-    this.navCtrl.navigateRoot('/login');
+    this.navCtrl.navigateRoot('/home');
   }
-
-  
-
 // ...
 
 camara() {
-  // Cambia 'otra-pagina' por el nombre de la ruta de tu otra página
+  // redirige a la camara
   this.router.navigate(['/camara']);
 }
 geolocalizacion() {
-  // Cambia 'otra-pagina' por el nombre de la ruta de tu otra página
+  // redirige a la geolocalizacion
   this.router.navigate(['/geolocalizacion']);
 }
 
