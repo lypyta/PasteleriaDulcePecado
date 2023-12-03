@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { ClProducto } from '../model/ClProducto';
 import { ProductServiceService } from '../product-service.service';
-import { HttpClientModule } from '@angular/common/http';
 
 
 @Component({
