@@ -1,3 +1,4 @@
+//home2.page.ts
 import { NavController } from '@ionic/angular';
 import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';

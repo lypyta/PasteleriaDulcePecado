@@ -19,9 +19,7 @@ export class RegisterPage {
     private toastCtrl: ToastController,
     private authservice: AuthService,
     private navCtrl: NavController,
-    private storage: Storage,
-    
-    
+    private storage: Storage,     
     ) {}
 
   async presentToast(message: string) {

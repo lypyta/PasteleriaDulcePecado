@@ -56,33 +56,6 @@ export class ProductDetailPage implements OnInit {
   }
 
 
-// Método que permite leer el producto
-  // async getProduct() {
-  //   console.log("getProduct **************** ParamMap ID:" + this.route.snapshot.paramMap.get('id'));
-  //   // Creamos un Wait
-  //   const loading = await this.loadingController.create({ message: 'Loading...' });
-  //   // Mostramos el Wait
-  //   await loading.present();
-  //   await this.restApi.getProduct(this.route.snapshot.paramMap.get('id')!)
-  //     .subscribe({
-  //       next: (res) => {
-  //         console.log("Data *****************");
-  //         console.log(res);
-  //         // Si funciona la respuesta la pasamos al producto
-  //         this.producto = res;
-  //         loading.dismiss();
-  //       }
-  //       , complete: () => { }
-  //       , error: (err) => {
-  //         //Si no funcion desplegamos en consola el error
-  //         console.log("Error DetailProduct Página", err);
-  //         loading.dismiss(); //Elimina la espera
-  //       }
-  //     })
-  // }
-
-
-
 
   async getProduct() {
     console.log("getProduct **************** ParamMap ID:" + this.route.snapshot.paramMap.get('id'));

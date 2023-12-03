@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { NavController } from '@ionic/angular';
-import { Storage } from '@ionic/storage-angular';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 
@@ -19,8 +18,7 @@ export class LoginPage {
     private router: Router,
     private toastCtrl: ToastController,
     private authservice: AuthService,
-    private navCtrl: NavController,
-    private storage: Storage
+    private navCtrl: NavController,   
   ) {}
 
   async presentToast(message: string) {

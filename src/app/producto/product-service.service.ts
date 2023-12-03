@@ -1,3 +1,4 @@
+//product-service.service.ts
 // Importa los módulos y clases necesarios de Angular y RxJS.
 import { Injectable } from '@angular/core';
 import { ClProducto } from './model/ClProducto';

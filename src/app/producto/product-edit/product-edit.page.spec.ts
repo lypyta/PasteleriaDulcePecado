@@ -1,12 +1,24 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ProductEditPage } from './product-edit.page';
+//product-edir.page.spec.ts
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ProductAddPage } from './product-add.page';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ProductServiceService } from '../product-service.service';
 
-describe('ProductEditPage', () => {
-  let component: ProductEditPage;
-  let fixture: ComponentFixture<ProductEditPage>;
+describe('ProductAddPage', () => {
+  let component: ProductAddPage;
+  let fixture: ComponentFixture<ProductAddPage>;
 
-  beforeEach(async() => {
-    fixture = TestBed.createComponent(ProductEditPage);
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [ProductAddPage],
+      imports: [HttpClientTestingModule], // Importa HttpClientTestingModule
+      providers: [ProductServiceService],
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ProductAddPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
