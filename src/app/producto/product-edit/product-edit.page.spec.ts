@@ -1,6 +1,6 @@
 //product-edir.page.spec.ts
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { ProductAddPage } from './product-add.page';
+import { ProductAddPage } from '../product-add/product-add.page';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ProductServiceService } from '../product-service.service';
 
